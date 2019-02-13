@@ -1,0 +1,291 @@
+@charset "utf-8";
+
+// Customization
+
+// You can easily customize Bulma with your own variables.
+// Just uncomment the following block to see the result.
+
+/*
+// 1. Import the initial variables
+@import "../node_modules/bulma/sass/utilities/initial-variables";
+
+// 2. Set your own initial variables
+// Update the blue shade, used for links
+$blue: #06bcef;
+// Add pink and its invert
+$pink: #ff8080;
+$pink-invert: #fff;
+// Update the sans-serif font family
+$family-sans-serif: "Helvetica", "Arial", sans-serif;
+
+// 3. Set the derived variables
+// Use the new pink as the primary color
+$primary: $pink;
+$primary-invert: $pink-invert;
+
+// 4. Import the rest of Bulma
+*/
+
+@import "../node_modules/bulma/bulma";
+
+body {
+    background: #041221;
+}
+.card {
+    cursor:pointer;
+    overflow:hidden;
+
+    &.large {
+        height: 600px;
+        backface-visibility: initial;
+        border-radius: 5px;
+    }
+
+    &-image {
+        .image {
+            height: 250px;
+            background-position:top;
+            overflow:hidden;
+            transition: all 2s;
+        }
+    }
+
+    &:hover {
+        .card-image {
+            .image {
+                background-size: 120%;
+            }
+        }
+    }
+}
+
+.media-left {
+    overflow: hidden;
+}
+    
+.media-content {
+    overflow: hidden;
+}
+
+.title.no-padding {
+    margin-bottom: 0 !important;
+}
+
+#flow span {
+    display: block;
+    width: 200vw;
+    height: 200vw;
+    position: absolute;
+    top: -180vw;
+    left: -50vw;
+    border-radius: 90vw;
+    opacity: 0.6;
+}
+
+.flow-1 {
+    background: #3281ff;
+    -webkit-animation: rotating 20s linear infinite;
+    -moz-animation: rotating 20s linear infinite;
+    -ms-animation: rotating 20s linear infinite;
+    -o-animation: rotating 20s linear infinite;
+    animation: rotating 20s linear infinite;
+}
+
+.flow-2 {
+    background: #f442ee;
+    position: absolute;
+    -webkit-animation: rotating 15s linear infinite;
+    -moz-animation: rotating 15s linear infinite;
+    -ms-animation: rotating 15s linear infinite;
+    -o-animation: rotating 15s linear infinite;
+    animation: rotating 15s linear infinite;
+}
+
+.flow-3 {
+    background: #42eef4;
+    position: absolute;
+    -webkit-animation: rotating 7s linear infinite;
+    -moz-animation: rotating 7s linear infinite;
+    -ms-animation: rotating 7s linear infinite;
+    -o-animation: rotating 7s linear infinite;
+    animation: rotating 7s linear infinite;
+    
+}
+
+    
+@-webkit-keyframes rotating {
+    from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+   
+@keyframes rotating {
+    from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+    
+.rotating {
+    -webkit-animation: rotating 2s linear infinite;
+    -moz-animation: rotating 2s linear infinite;
+    -ms-animation: rotating 2s linear infinite;
+    -o-animation: rotating 2s linear infinite;
+    animation: rotating 2s linear infinite;
+    
+}
+
+    
+.footer{
+    background-color: #222831;
+    color: lemonchiffon;
+
+    p, strong {
+        color: lemonchiffon
+    }
+
+    a {
+        &:hover {
+            color: crimson; 
+        }
+    }
+    
+}
+
+.fa {
+    color: lemonchiffon;
+    margin: 10px
+}
+
+/* Estilos necesarios para ventana modal */
+.modal-btn {
+    text-align: center;
+    padding: .6em .8em .8em;
+    border: none;
+    color: white;
+    background: lightgray;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: inset 0 -.2em rgba(0,0,0, .2);
+    outline: 0;
+    transition: .2s;
+    will-change: transform;
+  }
+  .modal-btn.primary {
+    background: #7dc800;
+  }
+  .modal-btn.warning {
+    background: #ff463b;
+  }
+  
+  .modal-btn:active {
+    transform: scale(.9);
+  }
+  .overlay {
+    background: rgba(0,0,0,.5);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+  }
+  .overlay.active {
+    display: flex;
+  }
+  .modal {
+    width: 600px;
+    background: white;
+    padding: 2em;
+    border-radius: .5em;
+    text-align: center;
+    z-index: 2;
+    transform: translateY(-3000px);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 500px;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .modal-content {
+    display: flex;
+    width: 100%;
+  }
+  
+  .modal-content img {
+    width: 170px;
+    height: 256px;
+    object-fit: cover;
+    margin-right: 15px;
+  }
+  .modal-content p {
+    align-self: center;
+  }
+  /*@keyframes animationIn {*/
+  @keyframes modalIn {
+    0% {
+      transform: translateY(-3000px);
+    }
+    60% {
+      transform: translateY(25px);
+    }
+    75% {
+      transform: translateY(-10px);
+    }
+    90% {
+      transform: translateY(5px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  /*@keyframes animationOut {*/
+  @keyframes modalOut {
+    0% {
+      transform: translateY(5px);
+    }
+    60% {
+      transform: translateY(-10px);
+    }
+    75% {
+      transform: translateY(25px);
+    }
+    100% {
+      transform: translateY(-3000px);
+    }
+  }
